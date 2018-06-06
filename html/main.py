@@ -1,7 +1,7 @@
 import bs4 as bs
 import urllib.request
 
-src = urllib.request.urlopen('https://xxxx.com').read()
+src = urllib.request.urlopen('https://bbc.co.uk/news').read()
 
 content = bs.BeautifulSoup(src,'lxml')
 
