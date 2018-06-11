@@ -2,10 +2,16 @@ import bs4 as bs
 import urllib.request
 
 #load soup
-src = urllib.request.urlopen('https://bbc.co.uk/news').read()
-#parse
-content = bs.BeautifulSoup(src,'lxml')
+try:
+    src = urllib.request.urlopen('https://bbc.co.uk/news').read()
+except HTTPError as e:
+    print(e)
+except URLError:
+    print("Server down or incorrect domain")
+else:
+    #parse
+    content = bs.BeautifulSoup(src,'lxml')
 
-#read all pharagraphs
-for paragraph in content.find_all('p'):
-    print(str(paragraph.text))
+    #read all pharagraphs
+    for paragraph in content.find_all('p'):
+        print(str(paragraph.text))
