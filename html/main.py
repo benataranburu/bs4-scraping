@@ -1,5 +1,6 @@
 import bs4 as bs
 import urllib.request
+from urllib.error import HTTPError
 
 #load soup
 try:
